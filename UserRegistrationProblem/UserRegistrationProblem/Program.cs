@@ -15,6 +15,7 @@ namespace UserRegistrationProblem
             Console.WriteLine(R.TestLastName("Wankgade"));
             Console.WriteLine(R.TestEmail("abc.xyz@bl.co.in"));
             Console.WriteLine(R.TestMobileNumber("91 8082494818"));
+            Console.WriteLine(R.TestPassword("abdgf657848"));
         }
     }
 }

@@ -11,6 +11,7 @@ namespace UserRegistrationProblem
         public string lastName = "^[A-Z]{1}[a-zA-z]{2,10}";
         public string testEmail = "^[A-Za-z0-9.]{3,20}@[A-Za-z]{2,10}.(com|co.in)$";
         public string mobileNumber = "^[9]{1}[1]{1}\\s[6-9]{1}[0-9]{9}";
+        public string password = "[A-Za-z0-9]{8,}"; 
 
         /// <summary>
         /// Method to test First Name
@@ -50,6 +51,16 @@ namespace UserRegistrationProblem
         public bool TestMobileNumber(string mNumber)
         {
             return Regex.IsMatch(mNumber, mobileNumber);
+        }
+
+        /// <summary>
+        /// Method to test Password
+        /// </summary>
+        /// <param name="pWord"></param>
+        /// <returns></returns>
+        public bool TestPassword(string pWord)
+        {
+            return Regex.IsMatch(pWord, password);
         }
     }
 }
