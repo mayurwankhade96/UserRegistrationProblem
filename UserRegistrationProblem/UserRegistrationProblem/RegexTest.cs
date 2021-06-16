@@ -8,6 +8,7 @@ namespace UserRegistrationProblem
     class RegexTest
     {
         public string firstName = "^[A-Z]{1}[a-zA-z]{2,10}";
+        public string lastName = "^[A-Z]{1}[a-zA-z]{2,10}";
 
         /// <summary>
         /// Method to test First Name
@@ -17,6 +18,16 @@ namespace UserRegistrationProblem
         public bool TestFirstName(string fName)
         {
             return Regex.IsMatch(fName, firstName);
+        }
+
+        /// <summary>
+        /// Method to test Last Name
+        /// </summary>
+        /// <param name="lName"></param>
+        /// <returns></returns>
+        public bool TestLastName(string lName)
+        {
+            return Regex.IsMatch(lName, lastName);
         }
     }
 }
