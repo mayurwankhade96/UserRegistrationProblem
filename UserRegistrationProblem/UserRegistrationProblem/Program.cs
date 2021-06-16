@@ -13,6 +13,7 @@ namespace UserRegistrationProblem
 
             Console.WriteLine(R.TestFirstName("Mayur"));
             Console.WriteLine(R.TestLastName("Wankgade"));
+            Console.WriteLine(R.TestEmail("abc.xyz@bl.co.in"));
         }
     }
 }
