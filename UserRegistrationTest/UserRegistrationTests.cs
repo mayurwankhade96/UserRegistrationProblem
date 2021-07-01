@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using UserRegistrationProblem;
 
-namespace UserRegistrationTest
+namespace UserRegistrationProblem.UserRegistrationTests
 {
-    public class Tests
+    public class UserRegistrationTests
     {
         RegexTest regex = new RegexTest();
 
@@ -146,6 +145,32 @@ namespace UserRegistrationTest
 
             // Act
             bool result = regex.TestPassword("sfsf@1w");
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        /// <summary>
+        /// UC11 Write NUnit Parameterised Test to validate multiple entry for the Email Address.
+        /// </summary>
+        /// <param name="email"></param>
+        [Test]
+        [TestCase("abc@yahoo.com")]
+        [TestCase("abc-100@yahoo.com")]
+        [TestCase("abc.100@yahoo.com")]
+        [TestCase("abc111@abc.com")]
+        [TestCase("abc-100@abc.net")]
+        [TestCase("abc.100@abc.com.au")]
+        [TestCase("abc@1.com")]
+        [TestCase("abc@gmail.com.com")]
+        [TestCase("abc+100@gmail.com")]
+        public void TestEmail_MultipleEmails_ShouldPassAll(string email)
+        {
+            // Arrange
+            bool expected = true;
+
+            // Act
+            bool result = regex.TestEmail(email);
 
             // Assert
             Assert.AreEqual(expected, result);
