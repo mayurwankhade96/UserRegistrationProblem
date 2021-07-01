@@ -2,13 +2,13 @@
 
 namespace UserRegistrationProblem
 {
-    class RegexTest
+    public class RegexTest
     {
-        public string firstName = "^[A-Z]{1}[a-zA-z]{2,10}$";
-        public string lastName = "^[A-Z]{1}[a-zA-z]{2,10}$";
-        public string testEmail = "^[A-Za-z0-9+.-]{3,20}@[A-Za-z0-9]{1,10}.+(com|co.in|net|com.au)$";
-        public string mobileNumber = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
-        public string password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*.-])[a-zA-Z0-9].{7,}$"; 
+        private string _firstName = "^[A-Z]{1}[a-zA-z]{2,10}$";
+        private string _lastName = "^[A-Z]{1}[a-zA-z]{2,10}$";
+        private string _testEmail = "^[A-Za-z0-9+.-]{3,20}@[A-Za-z0-9]{1,10}.+(com|co.in|net|com.au)$";
+        private string _mobileNumber = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
+        private string _password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*.-])[a-zA-Z0-9].{7,}$"; 
 
         /// <summary>
         /// Method to test First Name
@@ -17,7 +17,7 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestFirstName(string fName)
         {
-            return Regex.IsMatch(fName, firstName);
+            return Regex.IsMatch(fName, _firstName);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestLastName(string lName)
         {
-            return Regex.IsMatch(lName, lastName);
+            return Regex.IsMatch(lName, _lastName);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestEmail(string email)
         {
-            return Regex.IsMatch(email, testEmail);
+            return Regex.IsMatch(email, _testEmail);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestMobileNumber(string mNumber)
         {
-            return Regex.IsMatch(mNumber, mobileNumber);
+            return Regex.IsMatch(mNumber, _mobileNumber);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestPassword(string pWord)
         {
-            return Regex.IsMatch(pWord, password);
+            return Regex.IsMatch(pWord, _password);
         }
     }
 }
