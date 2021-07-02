@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System;
 
 namespace UserRegistrationProblem
 {
@@ -8,7 +9,7 @@ namespace UserRegistrationProblem
         private string _lastName = "^[A-Z]{1}[a-zA-z]{2,10}$";
         private string _testEmail = "^[A-Za-z0-9+.-]{3,20}@[A-Za-z0-9]{1,10}.+(com|co.in|net|com.au)$";
         private string _mobileNumber = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
-        private string _password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*.-])[a-zA-Z0-9].{7,}$"; 
+        private string _password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*.-])[a-zA-Z0-9].{7,}$";
 
         /// <summary>
         /// Method to test First Name
@@ -17,6 +18,9 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestFirstName(string fName)
         {
+            if (Regex.IsMatch(fName, _firstName) == false)
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_NAME, "First letter of name must be capital");
+
             return Regex.IsMatch(fName, _firstName);
         }
 
@@ -27,6 +31,9 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestLastName(string lName)
         {
+            if (Regex.IsMatch(lName, _lastName) == false)
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_NAME, "First letter of name must be capital");
+
             return Regex.IsMatch(lName, _lastName);
         }
 
@@ -37,6 +44,9 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestEmail(string email)
         {
+            if (Regex.IsMatch(email, _testEmail) == false)
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL, "Invalid email");
+
             return Regex.IsMatch(email, _testEmail);
         }
 
@@ -47,6 +57,9 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestMobileNumber(string mNumber)
         {
+            if (Regex.IsMatch(mNumber, _mobileNumber) == false)
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_MOBILE_NUMBER, "Please mention country code and put a space after that");
+
             return Regex.IsMatch(mNumber, _mobileNumber);
         }
 
@@ -57,6 +70,9 @@ namespace UserRegistrationProblem
         /// <returns></returns>
         public bool TestPassword(string pWord)
         {
+            if (Regex.IsMatch(pWord, _password) == false)
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Please follow password setting rules");
+
             return Regex.IsMatch(pWord, _password);
         }
     }
