@@ -11,7 +11,7 @@ namespace UserRegistrationProblem
             // Creating object
             RegexTest R = new RegexTest();
 
-            Console.WriteLine(R.TestFirstName("Mayur"));
+            Console.WriteLine(R.TestFirstName("mayur"));
             Console.WriteLine(R.TestLastName("Wankhade"));
             Console.WriteLine(R.TestEmail("abc+100@gmail.com"));
             Console.WriteLine(R.TestMobileNumber("91 8082494818"));
